@@ -5,4 +5,5 @@ order = Order()
 
 @app.route('/execute', methods=['POST'])
 def result():
-    return order.execute(request.form['tickets'], request.form['threshold'])
+    result = order.execute(int(request.form['tickets']), int(request.form['threshold']), int(request.form['timestamp']))
+    return result

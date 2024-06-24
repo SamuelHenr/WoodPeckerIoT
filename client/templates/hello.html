@@ -3,12 +3,44 @@
 <head>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ path }}"></script>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
-    {% if person %}
-    <h1>Hello {{ person }}!</h1>
-    {% else %}
-    <h1>Hello, World!</h1>
-    {% endif %}
+    <h1>Device's table</h1>
+
+    <div>
+        <div>
+            <label>Tickets:</label>
+            <input type="text" name="tickets" id="tickets" value="10">
+        </div>
+
+        <div>
+            <label>Threshold:</label>
+            <input type="text" name="threshold" id="threshold" value="10">
+        </div>
+
+        <div>
+            <label>Timestamp:</label>
+            <input type="text" name="timestamp" id="timestamp" value="1474552815">
+        </div>
+
+        <button style="margin-top: 10px; margin-bottom: 10px;" onclick="updateTable();">Send</button>
+    </div>
+
+    <table id="table">
+        <thead id="thead">
+            <tr>
+                <th>IP</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
 </body>

@@ -9,8 +9,8 @@ class Order:
         self.engine = Engine()
         self.inspect = Inspect()
 
-    def execute(self, tickets, threshold):
+    def execute(self, tickets, threshold, timestamp):
         lines = self.reader.get_data(tickets)
         nodes = self.engine.receive_data(lines)
-        review = self.inspect.get_nodes(nodes, threshold)
+        review = self.inspect.get_nodes(nodes, threshold, timestamp)
         return review

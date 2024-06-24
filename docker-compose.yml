@@ -7,6 +7,9 @@ services:
       dockerfile: dockerfile
       context: ./client
     restart: always
+    networks:
+      - woodpecker_network
+    tty: true
     ports:
       - "8000:5000"
     volumes:
@@ -19,7 +22,14 @@ services:
       dockerfile: dockerfile
       context: ./api
     restart: always
+    networks:
+      - woodpecker_network
+    tty: true
     ports:
       - "8080:5000"
     volumes:
       - ./api/architecture:/python-docker/architecture
+
+networks:
+  woodpecker_network:
+    driver: bridge
