@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  client:
+    container_name: client
+    build:
+      dockerfile: dockerfile
+      context: ./client
+    restart: always
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./client/templates:/python-docker/client/templates
+      - ./client/static:/python-docker/static
+  
+  api:
+    container_name: api
+    build:
+      dockerfile: dockerfile
+      context: ./api
+    restart: always
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./api/architecture:/python-docker/architecture
