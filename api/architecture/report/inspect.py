@@ -4,9 +4,6 @@ class Inspect(Report):
 
     review = {}
 
-    def get_current_timestamp(self) -> int:
-        return 1474552815
-
     def get_nodes(self, nodes: dict, threshold: int, current_timestamp: int):
         for key, value in nodes.items():
             if (int(value) + threshold) < current_timestamp:
